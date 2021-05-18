@@ -1,0 +1,63 @@
+﻿@model CrudDapperSql.Models.Producto
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>CreateAsync</h1>
+
+<h4>Producto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Seccion" class="control-label"></label>
+                <input asp-for="Seccion" class="form-control" />
+                <span asp-validation-for="Seccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NombreArticulo" class="control-label"></label>
+                <input asp-for="NombreArticulo" class="form-control" />
+                <span asp-validation-for="NombreArticulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Precio" class="control-label"></label>
+                <input asp-for="Precio" class="form-control" />
+                <span asp-validation-for="Precio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fecha" class="control-label"></label>
+                <input asp-for="Fecha" class="form-control" />
+                <span asp-validation-for="Fecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Importado" class="control-label"></label>
+                <input asp-for="Importado" class="form-control" />
+                <span asp-validation-for="Importado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaisDeOrigen" class="control-label"></label>
+                <input asp-for="PaisDeOrigen" class="form-control" />
+                <span asp-validation-for="PaisDeOrigen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Foto" class="control-label"></label>
+                <input asp-for="Foto" class="form-control" />
+                <span asp-validation-for="Foto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

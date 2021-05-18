@@ -1,0 +1,61 @@
+﻿@model IEnumerable<CrudDapperSql.Models.Producto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<a asp-action="Create">Crear</a>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoArticulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreArticulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Foto)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoArticulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreArticulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Foto)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { codigoArticulo = item.CodigoArticulo }) |
+                @Html.ActionLink("Details", "Details", new { codigoArticulo = item.CodigoArticulo }) |
+                @Html.ActionLink("Delete", "Delete", new { codigoArticulo = item.CodigoArticulo })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

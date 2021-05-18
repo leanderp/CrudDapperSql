@@ -1,6 +1,7 @@
 ﻿using CrudDapperSql.Models;
 using Dapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using MySql.Data.MySqlClient;
 using System;
@@ -14,22 +15,14 @@ namespace CrudDapperSql.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private string _connection = "Server=127.0.0.1;Port=3306;Database=gestionpedidos;Uid=root;AllowUserVariables=True;";
-
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
         {
             _logger = logger;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            IEnumerable<Productos> listProductos = null;
-            using (var db = new MySqlConnection(_connection))
-            {
-                var sql = "select * from productos";
-                listProductos = await db.QueryAsync<Productos>(sql);
-            }
-            return Json(listProductos);
+            return View();
         }
 
         public IActionResult Privacy()
